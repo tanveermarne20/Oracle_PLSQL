@@ -1,0 +1,159 @@
+--==========================IF ELSE PROGRAMS========================================
+--01.
+SET SERVEROUTPUT ON
+DECLARE
+ BANK_BAL NUMBER:=25000;
+ AMT NUMBER:=&AMT;
+ REMAINING_BANK_BALANCE NUMBER;
+ 
+BEGIN
+ IF BANK_BAL>AMT
+  THEN
+   REMAINING_BANK_BALANCE:=BANK_BAL-AMT;
+ DBMS_OUTPUT.PUT_LINE('AVAILABLE'||REMAINING_BANK_BALANCE);
+ ELSE
+ DBMS_OUTPUT.PUT_LINE('INSUFFICIENT');
+ END IF;
+END;
+--=========================================================================
+--02.FIND MAXIMUM BETWEEN TWO NUMBER;
+
+DECLARE
+NUM1 NUMBER:=&NUM1;
+NUM2 NUMBER:=&NUM2;
+BEGIN
+ IF NUM1>NUM2
+ THEN
+ DBMS_OUTPUT.PUT_LINE('GREATEST NUMBER IS '||NUM1);
+ ELSE
+ DBMS_OUTPUT.PUT_LINE('GREATEST NUMBER IS '||NUM2);
+ END IF;
+END;
+--========================================================
+--02.2.	Write PROGRAM to find maximum between three numbers.
+DECLARE
+    NUM1 NUMBER := &NUM1;
+    NUM2 NUMBER := &NUM2;
+    NUM3 NUMBER := &NUM3;
+BEGIN
+    IF NUM1 > NUM2 AND NUM1 > NUM3 THEN
+        DBMS_OUTPUT.PUT_LINE('NUM1 IS GREATEST ' || NUM1);
+    ELSIF NUM2 > NUM1 AND NUM2 > NUM3 THEN
+        DBMS_OUTPUT.PUT_LINE('NUM2 IS GREATEST ' || NUM2);
+    ELSIF NUM3 > NUM1 AND NUM3 > NUM2 THEN
+        DBMS_OUTPUT.PUT_LINE('NUM3 IS GREATEST ' || NUM3);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('All numbers are equal.');
+    END IF;
+END;
+-----------------------------------------------------------------------------
+DECLARE
+NUM1 NUMBER:=&NUM1;
+NUM2 NUMBER :=&NUM2;
+NUM3 NUMBER :=&NUM3;
+BEGIN
+ IF NUM1>NUM2 AND NUM1>NUM3 THEN
+ DBMS_OUTPUT.PUT_LINE('NUM1 IS GREATEST '||NUM1);
+ ELSE
+    IF NUM2>NUM1 AND NUM2>NUM3 THEN
+    DBMS_OUTPUT.PUT_LINE('NUM2 IS GREATEST '||NUM2);
+    ELSE
+       IF NUM3>NUM1 AND NUM3>NUM1 THEN
+       DBMS_OUTPUT.PUT_LINE('NUM3 IS GREATEST '||NUM3);
+  END IF;
+  END IF;
+  END IF;
+END;
+
+
+
+
+
+
+--===============================================================================
+--4.Write a  program to check whether a number is even or odd.
+DECLARE
+  NUM1 NUMBER := &NUM1;
+BEGIN
+  IF MOD(NUM1,2) = 0 THEN
+    DBMS_OUTPUT.PUT_LINE('THE NUMBER IS EVEN ' || NUM1);
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('THE NUMBER IS ODD ' || NUM1);
+  END IF;
+END;
+
+--==========================================================================
+--5.	Write a PYTHON program to check whether a year is leap year or not.
+DECLARE
+YEAR NUMBER :=&YEAR;
+BEGIN
+ IF MOD(YEAR,4)=0 AND MOD(YEAR,100)!=0 OR MOD(YEAR,400)=0 THEN
+ DBMS_OUTPUT.PUT_LINE('THE YEAR IS LEAP YEAR '||YEAR);
+ ELSE
+ DBMS_OUTPUT.PUT_LINE('THE YEAR IS NOT LEAP YEAR '||YEAR);
+END IF;
+END;
+
+--========================================================================
+--6.Write a  program to check whether a character is uppercase or lowercase alphabet.
+DECLARE
+  WORDD VARCHAR2(20) := '&WORD';
+BEGIN
+  IF WORDD BETWEEN 'A' AND 'Z' THEN
+    DBMS_OUTPUT.PUT_LINE('THE CHARACTER IS UPPER CASE ALPHABET ' || WORDD);
+  ELSE 
+    IF WORDD BETWEEN 'a' AND 'z' THEN
+      DBMS_OUTPUT.PUT_LINE('THE CHARACTER IS LOWER CASE ALPHABET ' || WORDD);
+    ELSE
+      DBMS_OUTPUT.PUT_LINE('THE CHARACTER IS NOT AN ALPHABET ' || WORDD);
+    END IF;
+  END IF;
+END;
+--------------------------------------------------------------------------
+DECLARE
+TEXT CHAR(30):='&TEXT'; 
+BEGIN
+ IF TEXT BETWEEN 'A' AND 'Z' THEN
+ DBMS_OUTPUT.PUT_LINE('THE TEXT IS UPPER CASE '||TEXT);
+ ELSE
+  IF TEXT BETWEEN 'a' AND 'z' THEN
+   DBMS_OUTPUT.PUT_LINE('THE TEXT IS LOWER CASE '||TEXT);
+END IF;
+END IF;
+END;
+
+
+
+--7.Write a program to calculate profit or loss.
+
+DECLARE
+SELLING_PRICE NUMBER:=&SELLING_PRICE;
+COST_PRICE NUMBER :=&COST_PRICE;
+PROFIT_LOSS NUMBER;
+BEGIN
+PROFIT_LOSS:=SELLING_PRICE-COST_PRICE;
+ IF PROFIT_LOSS>0 THEN 
+ DBMS_OUTPUT.PUT_LINE('PROFIT '||PROFIT_LOSS);
+ ELSIF PROFIT_LOSS<0 THEN
+  DBMS_OUTPUT.PUT_LINE('LOSS '||PROFIT_LOSS);
+ELSE
+  DBMS_OUTPUT.PUT_LINE('NO PRO/NO LOSS '||PROFIT_LOSS);
+END IF;
+END;
+
+
+-----------------------------------------
+DECLARE
+SELLING_PRICE NUMBER :=&SELLING_PRICE;
+COST_PRICE NUMBER :=&COST_PRICE;
+PROFIT_LOSS NUMBER;
+BEGIN
+PROFIT_LOSS:=SELLING_PRICE-COST_PRICE;
+ IF PROFIT_LOSS>0 THEN
+ DBMS_OUTPUT.PUT_LINE('PROFIT '||PROFIT_LOSS);
+ ELSE
+  IF PROFIT_LOSS<0 THEN
+  DBMS_OUTPUT.PUT_LINE('LOSS '||PROFIT_LOSS);
+END IF;
+END IF;
+END;
