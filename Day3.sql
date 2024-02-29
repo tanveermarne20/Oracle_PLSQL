@@ -68,8 +68,6 @@ ELSE
 END IF;
 END;
 --=============================================================================================
-
-
 DECLARE
  BANK_BALANCE NUMBER :=15000;
  AMT NUMBER:=&AMT;
@@ -85,8 +83,36 @@ BEGIN
 END;
 --==========================================================================================
 
-
-
+--==============================================================================
+--FIND EXPERIENCE
+--AND USE EXP TO GIVE HIKE
+--IF EXP BETWEEN 1 TO 5 THAN 20% 
+--IF EXP BETWEEN 5 TO 10 THAN 15%
+--ELSE 10%
+SET SERVEROUTPUT ON
+DECLARE
+EID NUMBER := &EID;
+T_EXP NUMBER;
+SAL NUMBER;
+FNAME VARCHAR2(20);
+LNAME VARCHAR2(20);
+HIKE_SAL  NUMBER;
+BEGIN
+  SELECT SALARY,
+  MONTHS_BETWEEN(SYSDATE,HIRE_DATE)AS TOTAL_EXPERIENCE  INTO SAL,T_EXP
+  FROM EMPLOYEES
+  WHERE EMPLOYEE_ID=EID;
+  
+  SELECT FIRST_NAME,LAST_NAME,
+  CASE
+  WHEN T_EXP BETWEEN 1 AND 5 THEN (SAL+(SAL*0.20))
+  WHEN T_EXP BETWEEN 5 AND 10 THEN (SAL+(SAL*0.15))
+  ELSE (SAL+(SAL*0.10)) END AS NEW_SAL INTO FNAME,LNAME,HIKE_SAL
+  FROM EMPLOYEES
+  WHERE EMPLOYEE_ID=&EID;
+  
+  DBMS_OUTPUT.PUT_LINE(FNAME||' '||LNAME||' '||SAL||' '||HIKE_SAL);
+END;
 
 
 
