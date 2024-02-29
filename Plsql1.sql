@@ -197,10 +197,55 @@ END;
 ------------------------------------------------
 
 
+--4.Write a program to check whether a number is divisible by 5 and 11 or not.
 
 
+DECLARE
+NUM1 NUMBER:=&NUM1;
+BEGIN
+ IF MOD(NUM1,5)=0 AND MOD(NUM1,11)=0 THEN
+  DBMS_OUTPUT.PUT_LINE('NUMBER IS DIVISIBLE BY BOTH '||NUM1);
+ 
+ ELSIF  MOD(NUM1,5)!=0 AND MOD(NUM1,11)=0 THEN
+ DBMS_OUTPUT.PUT_LINE('NUMBER IS ONLY DIVISIBLE BY 11 '||NUM1);
+ 
+ ELSIF MOD(NUM1,5)=0 AND MOD(NUM1,11)!=0 THEN
+ DBMS_OUTPUT.PUT_LINE('NUMBER IS DIVISIBLE BY 5 '||NUM1);
+ELSE
+  DBMS_OUTPUT.PUT_LINE('NUMBER IS NOT DIVISIBLE BY 5 NOR 11 '||NUM1);
+END IF;
+ 
+END;
 
-
-
-
-
+--14.Write a  program to input angles of a triangle and check 
+--whether triangle is valid or not
+DECLARE
+SIDE1 NUMBER:=&SIDE1;
+SIDE2 NUMBER:= &SIDE2;
+SIDE3 NUMBER :=&SIDE3;
+TOTAL NUMBER;
+BEGIN
+  TOTAL:=(SIDE1+SIDE2+SIDE3);
+  
+  IF TOTAL=180 AND SIDE1>0 AND SIDE2>0 AND SIDE3>0 THEN
+  DBMS_OUTPUT.PUT_LINE('ITS A TRIANGLE ');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('ITS NOT FORM  A VALID  TRIANGLE ');
+END IF;
+END;
+-------------------------------------------------------------------------------
+--16.Write a program to check whether the triangle is equilateral,
+--isosceles or scalene triangle.
+DECLARE
+SIDE1 NUMBER :=&SIDE1;
+SIDE2 NUMBER :=&SIDE2;
+SIDE3 NUMBER :=&SIDE3;
+BEGIN
+ IF (SIDE1=SIDE2) AND (SIDE2=SIDE3) THEN
+  DBMS_OUTPUT.PUT_LINE('EQUILATERAL TRIANGLE ');
+ ELSIF SIDE1=SIDE2 OR SIDE2=SIDE3 OR SIDE3=SIDE1 THEN
+   DBMS_OUTPUT.PUT_LINE('ISOCELES TRIANGLE ');
+ELSE
+   DBMS_OUTPUT.PUT_LINE('SCALENE TRIANGLE ');
+END IF;
+END;
