@@ -14,7 +14,7 @@ BEGIN
 END;
 
 
------------------
+--------------------------------------------------------------------------
 DECLARE
 NUM1 NUMBER :=&NO1;
 P NUMBER :=1;
@@ -54,6 +54,20 @@ LOOP
  EXIT WHEN  NUM1>100;
 END LOOP;
 END;
+--------------------------------------------------------------------------------
 
+SET SERVEROUTPUT ON
+DECLARE
+ NUM1 NUMBER:=&NUM1;
+ B NUMBER:=1;
+ RSLT NUMBER;
+BEGIN 
+  LOOP
+    RSLT:=NUM1*B;          --25*1
+    DBMS_OUTPUT.PUT_LINE(RSLT);  --25
+   B:=B+1;                          --1+1 --->2
+   EXIT WHEN B=11;                   --2=11  --true 
+  END LOOP;
+END;
 
 
