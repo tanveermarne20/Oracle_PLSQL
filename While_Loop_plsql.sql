@@ -11,5 +11,9 @@ WHILE i<11 LOOP     --1<11
  i:=i+1;
  END LOOP;
 END;
-
 -----------------------------------------------------------------------------
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=
+BEGIN
+END;
