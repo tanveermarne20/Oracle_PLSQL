@@ -89,7 +89,6 @@ BEGIN
     END LOOP;
 END;
 
-
 --3.	Write a Plsql program to print all alphabets from a to z. - using while loop
 SET SERVEROUTPUT ON
 DECLARE
@@ -113,7 +112,6 @@ BEGIN
    END LOOP;
 END;
 
-
 --5.	Write a Plsql program to print all odd number between 1 to 100.
 SET SERVEROUTPUT ON
 DECLARE
@@ -124,8 +122,52 @@ BEGIN
      DBMS_OUTPUT.PUT_LINE(F);
    END IF;
    F:=F+1;
- END LOOP;
+ END LOOP; 
 END;
+
+--6.	Write a Plsql program to find sum of all natural numbers between 1 to n.
+--Natural numbers are a set of positive integers starting from 1 and continuing indefinitely
+SET SERVEROUTPUT ON
+DECLARE
+   N NUMBER := &NO1;
+   J NUMBER := 1;
+   SUM NUMBER := 0;
+BEGIN
+   WHILE (J <= N) LOOP
+      DBMS_OUTPUT.PUT_LINE(J);
+      SUM := SUM + J;
+      J := J + 1;
+   END LOOP;
+   DBMS_OUTPUT.PUT_LINE('Sum of natural numbers from 1 to ' || N || ' is: ' || SUM);
+END;
+--7.	Write a Plsql program to find sum of all even numbers between 1 to n.
+--8.	Write a Plsql program to find sum of all odd numbers between 1 to n.
+--9.	Write a Plsql program to print multiplication table of any number.
+--10.	Write a Plsql program to count number of digits in a number.
+--11.	Write a plsql program to find first and last digit of a number.
+--12.	Write a plsql program to find sum of first and last digit of a number.
+--13.	Write a plsql program to swap first and last digits of a number.
+--14.	Write a plsql program to calculate sum of digits of a number.
+--15.	Write a plsql program to calculate product of digits of a number.
+--16.	Write a plsql program to enter a number and print its reverse.
+--17.	Write a plsql program to check whether a number is palindrome or not.
+--18.	Write a plsql program to find frequency of each digit in a given integer.
+--19.	Write a plsql program to enter a number and print it in words.
+--20.	Write a plsql program to find power of a number using for loop.
+--21.	Write a plsql program to find all factors of a number.
+--22.	Write a plsql program to calculate factorial of a number.
+--23.	Write a plsql program to check whether a number is Prime number or not.
+--24.	Write a plsql program to print all Prime numbers between 1 to n.
+--25.	Write a plsql program to find sum of all prime numbers between 1 to n.
+--26.	Write a plsql program to find all prime factors of a number.
+--27.	Write a plsql program to check whether a number is Armstrong number or not.
+--28.	Write a plsql program to print all Armstrong numbers between 1 to n.
+--29.	Write a plsql program to check whether a number is Perfect number or not.
+--30.	Write a plsql program to print all Perfect numbers between 1 to n.
+--31.	Write a plsql program to check whether a number is Strong number or not.
+--32.	Write a plsql program to print all Strong numbers between 1 to n.
+--33.	Write a plsql program to print Fibonacci series up to n terms.
+--34.	Write a plsql program to print Pascal triangle upto n rows.
 
 
 

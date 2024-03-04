@@ -176,6 +176,24 @@ BEGIN
   END LOOP;
 END;
 
+--=======================================================================
+--PRINT TABLE OF 56 USING BASIC LOOP
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=&NO1;
+L NUMBER:=1;
+RSLT NUMBER;
+BEGIN
+ LOOP
+     RSLT:=NUM1*L;
+     DBMS_OUTPUT.PUT_LINE(RSLT);
+     L:=L+1;
+     EXIT WHEN L=11;
+  END LOOP;
+END;
+ 
+ 
+
 
 
 
