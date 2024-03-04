@@ -71,3 +71,113 @@ BEGIN
 END;
 
 
+--1.PRINT TABLE OF 23
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=&NO1;
+P NUMBER:=1;
+RSLT NUMBER;
+BEGIN
+LOOP
+ RSLT:=NUM1*P;
+DBMS_OUTPUT.PUT_LINE(RSLT);
+ p:=p+1;
+  EXIT WHEN P=11;
+ END LOOP;
+END;
+
+--============================================
+DECLARE
+NUM1 NUMBER:=&NO1;
+k NUMBER:=1;
+RSLT NUMBER;
+BEGIN
+ LOOP
+     RSLT:=NUM1*k;
+     DBMS_OUTPUT.PUT_LINE(RSLT);
+     k:=k+1;
+     EXIT WHEN k=11;
+  END LOOP;
+END;
+
+--=====================================================
+--PRINT TABLE OF 98
+DECLARE
+ NUM1 NUMBER:=&NO1;
+ Q NUMBER:=1;
+ RSLT NUMBER;
+BEGIN
+   LOOP
+    RSLT:=NUM1*Q;            --98*1
+    DBMS_OUTPUT.PUT_LINE(RSLT);   --98
+   Q:=Q+1;
+   EXIT WHEN Q=11;
+   END LOOP;
+END;
+
+
+--==========================================
+DECLARE
+NUM1 NUMBER:=&NO1;
+W NUMBER:=1;
+RSLT NUMBER;
+BEGIN
+  LOOP
+        RSLT:=NUM1*W;
+        DBMS_OUTPUT.PUT_LINE(RSLT);
+        W:=W+1;
+        EXIT WHEN W=11;              --WHEN CODITION BECOMES TRUE IT WILL EXIT
+  END LOOP;
+END;
+-------------------------------------------------------------------------
+--PRINT TABLE OF 45
+DECLARE
+ NUM1 NUMBER:=&NO1;
+ E NUMBER:=1;
+ RSLT NUMBER;
+BEGIN
+LOOP
+ RSLT:=NUM1*E;
+ DBMS_OUTPUT.PUT_LINE(RSLT);
+ E:=E+1;
+ EXIT WHEN E=11;
+ END LOOP;
+END;
+
+
+
+--==============================
+--PRINT TABLE OF 88
+DECLARE
+ NUM1 NUMBER:=&NO1;
+ R NUMBER:=1;
+ RESULT NUMBER;
+BEGIN
+ LOOP
+   RESULT:=NUM1*R;
+   DBMS_OUTPUT.PUT_LINE(RESULT);
+   R:=R+1;
+   EXIT WHEN R=11;
+ END LOOP;
+END;
+
+--==========================================================
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=&NUM1;
+D NUMBER:=1;
+RSLT NUMBER;
+BEGIN                   
+ LOOP
+    RSLT:=NUM1*D;            --25*1
+    DBMS_OUTPUT.PUT_LINE(RSLT);   --25
+    D:=D+1;                            --1+1
+   EXIT WHEN D=11;
+  END LOOP;
+END;
+
+
+
+
+
+

@@ -320,6 +320,209 @@ END;
 --For next 100 units Rs. 1.20/unit
 --For unit above 250 Rs. 1.50/unit
 --	An additional surcharge of 20% is added to the bill
+--=============================================================================================
+
+--======================= 3rd March ============================================================
+--1.	Write a plsql program to find maximum between two numbers.
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=&NO1;
+NUM2 NUMBER:=&NO2;
+BEGIN
+ IF NUM1>NUM2 THEN
+  DBMS_OUTPUT.PUT_LINE('NUM1 IS GREATEST '||NUM1);
+ ELSE
+  DBMS_OUTPUT.PUT_LINE('NUM2 IS GREATEST '||NUM2);
+END IF;
+END;
+
+
+--2.	Write a plsql program to find maximum between three numbers.
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=&NO1;
+NUM2 NUMBER:=&NO2;
+NUM3 NUMBER:=&NO3;
+BEGIN
+ IF NUM1>NUM2 THEN
+   IF NUM1>NUM3 THEN
+     DBMS_OUTPUT.PUT_LINE('NUM1 IS GREATEST '||NUM1);
+   ELSE
+     DBMS_OUTPUT.PUT_LINE('NUM3 IS GREATEST '||NUM3);
+   END IF;  
+ ELSIF NUM2>NUM3 THEN
+    DBMS_OUTPUT.PUT_LINE('NUM2 IS GREATEST '||NUM2);
+ELSE
+   DBMS_OUTPUT.PUT_LINE('NUM3 IS GREATEST '||NUM3);
+END IF;
+END;
+
+--3.	Write a plsql program to check whether a number is negative, positive or zero.
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=&NUM1;
+BEGIN
+ IF NUM1>0 THEN
+   DBMS_OUTPUT.PUT_LINE('POSITIVE '||NUM1);
+   ELSE
+     IF NUM1=0 THEN
+       DBMS_OUTPUT.PUT_LINE('ZERO '||NUM1);
+        ELSE
+           IF NUM1<0 THEN
+            DBMS_OUTPUT.PUT_LINE('NEGATIVE '||NUM1);
+         END IF;
+         END IF;                                                                    
+         END IF;
+END;
+--4.	Write a plsql program to check whether a number is divisible by 5 and 11 or not.
+SET SERVEROUTPUT ON
+DECLARE
+NUM1 NUMBER:=&NO1;
+BEGIN
+ IF MOD(NUM1,5)=0 AND MOD(NUM1,11)=0 THEN
+  DBMS_OUTPUT.PUT_LINE('NUM1 IS DIVISIBLE BY 5 AND 11 '||NUM1);
+  ELSIF MOD(NUM1,5)!=0 AND MOD(NUM1,11)=0 THEN
+  DBMS_OUTPUT.PUT_LINE('NUM1 IS DIVISIBLE BY 11 AND BUT NOT BY5 '||NUM1);
+  ELSIF MOD(NUM1,5)=0 AND MOD(NUM1,11)!=0 THEN
+  DBMS_OUTPUT.PUT_LINE('NUM1 IS DIVISIBLE BY 5 AND BUT NOT BY  11 '||NUM1);
+ELSE
+  DBMS_OUTPUT.PUT_LINE('INVALID'||NUM1);
+  END IF;
+END;
+--5.	Write a plsql program to check whether a number is even or odd.
+SET SERVEROUTPUT ON
+DECLARE
+ NUM1 NUMBER:=&NUM1;
+BEGIN
+  IF MOD(NUM1,2)=0 THEN
+   DBMS_OUTPUT.PUT_LINE('EVEN NUMBER '||NUM1);
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('ODD NUMBER '||NUM1);
+    END IF;
+END;
+--6.	Write a plsql program to check whether a year is leap year or not.
+SET SERVEROUTPUT ON
+DECLARE
+ YEAR NUMBER:=&YEAR;
+BEGIN
+ IF MOD(YEAR,4)=0 AND MOD(YEAR,400)=0 OR MOD(YEAR,100)!=0 THEN
+ DBMS_OUTPUT.PUT_LINE('LEAP YEAR '||YEAR);
+ ELSE
+  DBMS_OUTPUT.PUT_LINE('NOT LEAP YEAR '||YEAR);
+  END IF;
+END;
+
+--7.Write a plsql program to check whether a character is alphabet or not.
+SET SERVEROUTPUT ON
+DECLARE
+ ALPHA CHAR:='&ALHA';
+BEGIN
+  IF  ASCII(ALPHA) BETWEEN ASCII('A') AND ASCII('Z') OR
+       ASCII(ALPHA) BETWEEN ASCII('a') AND ASCII('z')
+  THEN
+   DBMS_OUTPUT.PUT_LINE('ALPHA');
+  ELSE
+   DBMS_OUTPUT.PUT_LINE('NOT ALPHA');
+  END IF;
+END;
+--8.	Write a plsql program to input any alphabet and check whether it is vowel or consonant.
+SET SERVEROUTPUT ON
+DECLARE
+ ALPHA CHAR:=UPPER('&ALPHA');
+BEGIN
+ IF ALPHA IN ('A','I','O','U') THEN
+   DBMS_OUTPUT.PUT_LINE('VOWELS '||ALPHA);
+  ELSE
+   DBMS_OUTPUT.PUT_LINE('CONSONANT '||ALPHA);
+   END IF;
+END;
+--9.	Write a plsql program to input any character and check whether it is alphabet, digit or special character.
+SET SERVEROUTPUT ON
+DECLARE
+ TEXT1 VARCHAR2(1):=UPPER('&TEXT1');
+BEGIN
+ IF REGEXP_LIKE(TEXT1,'[[:alpha:]]') THEN
+  DBMS_OUTPUT.PUT_LINE('ALPHABET '||TEXT1);
+ ELSIF REGEXP_LIKE(TEXT1,'[[:digit:]]') THEN
+  DBMS_OUTPUT.PUT_LINE('DIGIT '||TEXT1);
+ELSE
+  DBMS_OUTPUT.PUT_LINE('INVALID');
+  END IF;
+END;
+--10.	Write a plsql program to check whether a character is uppercase or lowercase alphabet.
+SET SERVEROUTPUT ON
+DECLARE
+ALPHA CHAR:='&ALPHA';
+BEGIN
+ IF ALPHA BETWEEN 'A' AND 'Z' THEN
+  DBMS_OUTPUT.PUT_LINE('UPPER CASE '||ALPHA);
+ ELSIF ALPHA BETWEEN 'a' AND 'b' THEN
+  DBMS_OUTPUT.PUT_LINE('LOWER');
+ ELSE
+  DBMS_OUTPUT.PUT_LINE('INVALID');
+  END IF;
+END;
+--11.	Write a plsql program to input week number and print week day.
+SET SERVEROUTPUT ON
+DECLARE
+ WEEK_NUMBER NUMBER:=&WEEK_NUMBER;
+ WEEK_DAY VARCHAR2(15);
+BEGIN
+   CASE WEEK_NUMBER
+   WHEN 1 THEN WEEK_DAY:='MONDAY';
+   WHEN 2 THEN WEEK_DAY:='TUESDAY';
+   WHEN 3 THEN WEEK_DAY:='WEDNESDAY';
+   WHEN 4 THEN WEEK_DAY:='THRUSDAY';
+   WHEN 5 THEN WEEK_DAY:='FRIDAY';
+   WHEN 6 THEN WEEK_DAY:='SATURDAY';
+   WHEN 7 THEN WEEK_DAY:='SUNDAY';
+  END CASE; 
+ DBMS_OUTPUT.PUT_LINE('WEEK NUMBER'|| WEEK_NUMBER||'WEEK DAY IS '||WEEK_DAY); 
+END;
+
+--12.	Write a plsql program to input month number and print number of days in that month.
+SET SERVEROUTPUT ON
+DECLARE
+ MONTH_NUMBER NUMBER:=&MONTH_NUMBER;
+BEGIN
+ IF MONTH_NUMBER IN (1,3,5,7,10,12) THEN
+  DBMS_OUTPUT.PUT_LINE('Number of days in '||MONTH_NUMBER||' 31');
+ ELSIF MONTH_NUMBER=2 THEN
+ DBMS_OUTPUT.PUT_LINE('Number of days in '||MONTH_NUMBER||' 28 OR 29');
+ ELSIF MONTH_NUMBER IN (11,8,6,4) THEN
+ DBMS_OUTPUT.PUT_LINE('Number of days in '||MONTH_NUMBER||' 30');
+ ELSE
+  DBMS_OUTPUT.PUT_LINE('INVALID');
+END IF;
+END;
+--14.Write a plsql program to input angles of a triangle and check whether triangle is valid or not.
+SET SERVEROUTPUT ON
+DECLARE
+ANG1 NUMBER:=&ANG1;
+ANG2 NUMBER:=&ANG2;
+ANG3 NUMBER:=&ANG3;
+BEGIN
+ IF (ANG1+ANG2+ANG3=180) AND ANG1>0 AND  ANG2>0 AND ANG3>0 THEN
+  DBMS_OUTPUT.PUT_LINE('ITS A VALID TRIANGLE ');
+ ELSE
+     DBMS_OUTPUT.PUT_LINE('ITS NOT A VALID TRIANGLE ');
+  END IF;
+END;
+--15.	Write a plsql program to input all sides of a triangle and check whether triangle is valid or not.
+--16.	Write a plsql program to check whether the triangle is equilateral, isosceles or scalene triangle.
+--17.	Write a plsql program to find all roots of a quadratic equation.
+--18.	Write a plsql program to calculate profit or loss.
+--19.	Write a plsql program to input marks of five subjects Physics, Chemistry, Biology, Mathematics and Computer. Calculate percentage and grade according to following:
+--Percentage >= 90% : Grade A
+--Percentage >= 80% : Grade B
+--Percentage >= 70% : Grade C
+--Percentage >= 60% : Grade D
+--Percentage >= 40% : Grade E
+--Percentage < 40% : Grade F
+--20.	Write a plsql program to input basic salary of an employee and calculate its Gross salary according to following:
+--Basic Salary <= 10000 : HRA = 20%, DA = 80%
+--Basic Salary <= 20000 : HRA = 25%, DA = 90%
+--Basic Salary > 20000 : HRA = 30%, DA = 95%
 
 
 
